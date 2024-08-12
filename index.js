@@ -1,11 +1,13 @@
 require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
-const { connectToDatabase } = require("./config/database");
-const { connectToCloudinary } = require("./config/cloudinary");
-const mainRouter = require("./api/routes/main");
 
-const port = 3000;
+
+const mainRouter = require("./src/api/routes/main");
+const { connectToDatabase } = require("./src/config/database");
+const { connectToCloudinary } = require("./src/config/cloudinary");
+
+const port = process.env.PORT || 3000;
 const app = express();
 
 connectToDatabase();
